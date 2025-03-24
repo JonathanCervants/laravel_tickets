@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\TicketsController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome');
@@ -13,6 +14,17 @@ Route::get('dashboard', function () {
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+
+Route::controller(TicketsController::class)->group(function(){
+    Route::get('/ticket','create');
+    Route::post('/ticket','store');
+    Route::get('/tickets','index');
+    Route::get('/ticket/{slug}','show')->name('ticket.show');
+    Route::get('/ticket/{slug}/editar','edit')->name('ticket.edit');
+    Route::get('/ticket/{slug}/eliminar','delete')->name('ticket.delete');
+    Route::post('/ticket/{slug}/editar','update');
+});
+
 
 // <?php
 
@@ -31,14 +43,6 @@ require __DIR__.'/auth.php';
 
 // Route::get('/tickets', 'TicketsController@create');
 
-// Route::controller(TicketsController::class)->group(function(){
-//   Route::get('/ticket','create');
-//   Route::post('/ticket','store');
-//   Route::get('/tickets','index');
-//   Route::get('/ticket/{slug}','show')->name('ticket.show');
-//   Route::get('/ticket/{slug}/editar','edit')->name('ticket.edit');
-//   Route::get('/ticket/{slug}/eliminar','delete')->name('ticket.delete');
-//   Route::post('/ticket/{slug}/editar','update');
 
 // });
 
