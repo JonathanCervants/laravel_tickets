@@ -1,23 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Tickets;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\TicketFormRequest;
 use App\Models\Ticket;
 use App\Models\Comentario;
+use Inertia\Inertia;
+use Inertia\Response;
+
 
 class TicketsController extends Controller
 {
     public function index()
     {
-        $tickets = Ticket::all();
-        return view('tickets.index', ['tickets'=> $tickets]);   
+    //     $tickets = Ticket::all();
+    //     return view('tickets.index', ['tickets'=> $tickets]);   
+    // }
     }
 
     public function create()
     {
-        return view('tickets.crear');
+        return Inertia::render('tickets/Login');
     }
 
     /**

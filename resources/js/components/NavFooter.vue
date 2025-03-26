@@ -11,6 +11,7 @@ defineProps<Props>();
 </script>
 
 <template>
+    sdsdsd
     <SidebarGroup :class="`group-data-[collapsible=icon]:p-0 ${$props.class || ''}`">
         <SidebarGroupContent>
             <SidebarMenu>
