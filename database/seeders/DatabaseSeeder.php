@@ -13,9 +13,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
+        // User::facory(10)->create();
+        $categories  = Categories::factory()
+        User::factory()
+            ->count(5)
+            ->has(
+                Product::factory(10)->state(function () use($categories){
+                    return ['category_id' => $categories->]         
+                })
+            )
+        create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
