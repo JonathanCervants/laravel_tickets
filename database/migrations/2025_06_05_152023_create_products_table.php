@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('brand');
             $table->text('description');
             $table->unsignedInteger('price');
-            $table->unsignedInteger('price');
-            $table->unsignedInteger('price');
-
-            $table->id();
-
-
+            $table->decimal('weight', 10,2);
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
     }

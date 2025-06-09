@@ -3,8 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Product;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,17 +18,15 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::facory(10)->create();
-        $categories  = Categories::factory()
+        $categories  = Category::factory()->count(10)->create();
+
         User::factory()
             ->count(5)
             ->has(
                 Product::factory(10)->state(function () use($categories){
-                    return ['category_id' => $categories->]         
+                    return ['category_id' => $categories->random()->id];         
                 })
             )
-        create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+            ->create();
     }
 }

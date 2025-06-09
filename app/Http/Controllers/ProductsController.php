@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\Product;
+use App\Models\Category;
+
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -12,33 +15,19 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return Inertia::render('products/Index');
+        $products = Product::all();
+        return Inertia::render('products/Index',compact('products'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
-/
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
-    {
-      //  $product -> load( )  public function show(string $id): Response
-    // {
-    //     return Inertia::render('users/show', [
-    //         'user' => User::findOrFail($id)
-    //     ]);
-    // }
+    {   
+        $product = Product::whereId($id)->firstOrFail();
+        return Inertia::render('products/Show', compact('product')); 
     }
 
     /**
