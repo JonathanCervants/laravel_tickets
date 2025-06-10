@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\TicketsController;
 
 Route::get('/', function () {
     return Inertia::render('tickets/Login');
@@ -14,6 +15,8 @@ Route::middleware(['auth', 'verified'])->group(function(){
     })->name('dashboard');
 
     Route::resource('productos', ProductsController::class);
+    Route::resource('tickets', TicketsController::class);
+
 });
 
 

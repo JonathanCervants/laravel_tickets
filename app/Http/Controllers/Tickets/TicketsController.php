@@ -47,9 +47,10 @@ class TicketsController extends Controller
      */
     public function show(string $slug)
     {
-        $ticket = Ticket::whereSlug($slug)->firstOrFail();
-        $comentario= $ticket->comentarios->all();
-        return view('tickets.show',compact('ticket','comentario')); 
+        return Intertia::render('tickets/Show');
+        // $ticket = Ticket::whereSlug($slug)->firstOrFail();
+        // $comentario= $ticket->comentarios->all();
+        // return view('tickets.show',compact('ticket','comentario')); 
 
     }
 
