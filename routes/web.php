@@ -15,12 +15,11 @@ Route::middleware(['auth', 'verified'])->group(function(){
     })->name('dashboard');
 
     Route::resource('productos', ProductsController::class);
-    Route::resource('tickets', TicketsController::class);
 
 });
+Route::resource('tickets', TicketsController::class);
 
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
-require __DIR__.'/tickets.php';
 // });

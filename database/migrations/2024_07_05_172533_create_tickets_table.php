@@ -13,18 +13,15 @@ return new class extends Migration
     {
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('content');
-            $table->string('slug');
-            $table->string('status');
-            $table->integer('user_id');
+            $table->string('title',255);
+            $table->text('content');
+            $table->string('slug')->nullable();;
+            $table->string('status')->default('0');
+            $table->integer('user_id')->nullable();
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
+    
     public function down(): void
     {
         Schema::dropIfExists('tickets');

@@ -1,27 +1,23 @@
 <?php
 
-namespace App\Http\Controllers\Tickets;
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Requests\TicketFormRequest;
+namespace App\Http\Controllers;
+
 use App\Models\Ticket;
-use App\Models\Comentario;
 use Inertia\Inertia;
-use Inertia\Response;
 
 
 class TicketsController extends Controller
 {
     public function index()
     {
-    //     $tickets = Ticket::all();
-    //     return view('tickets.index', ['tickets'=> $tickets]);   
-    // }
+        $tickets = Ticket::all();
+        return Inertia::render('tickets/Index', ['tickets'=> $tickets]);   
+    
     }
 
     public function create()
     {
-        return Inertia::render('tickets/Login');
+        return Inertia::render('tickets/create');
     }
 
     /**
@@ -31,9 +27,9 @@ class TicketsController extends Controller
     {       
         $slug = uniqid();
         $ticket = new Ticket(array(
-            'titulo' => $request->get('titulo'),
-            'contenido' => $request->get('contenido'),
-            'estado' =>1,
+            'title' => $request->get('title'),
+            'content' => $request->get('content'),
+            'status' =>1,
             'user_id' => 1,
             'slug' => $slug
         ));

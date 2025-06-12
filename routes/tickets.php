@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Tickets\TicketsController;
+use App\Http\Controllers\TicketsController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
