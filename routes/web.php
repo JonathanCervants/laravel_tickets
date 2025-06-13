@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\TicketsController;
 
 Route::get('/', function () {
     return Inertia::render('tickets/Login');
@@ -14,10 +15,11 @@ Route::middleware(['auth', 'verified'])->group(function(){
     })->name('dashboard');
 
     Route::resource('productos', ProductsController::class);
+
 });
+Route::resource('tickets', TicketsController::class);
 
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
-require __DIR__.'/tickets.php';
 // });

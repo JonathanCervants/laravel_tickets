@@ -10,14 +10,14 @@ class Ticket extends Model
 {
     use HasFactory;
     // protected $table = 'yourCustomTableName';
-    protected $fillable =['titulo','contenido','slug','estado','user_id'];
+    protected $fillable =['title','content','slug','status','user_id'];
     
     public function user()
     {
         return $this->belongsTo('App\User');
     } 
-    public function comentarios()
+    public function comments()
     {
-        return $this->hasMany('App\Models\Comentario','post_id');
+        return $this->hasMany('App\Models\Comment','post_id');
     }
 }

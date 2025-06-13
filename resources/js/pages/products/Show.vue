@@ -4,7 +4,7 @@ import { Head } from '@inertiajs/vue3';
 import { Card,CardHeader,CardTitle,CardDescription,CardContent,CardFooter } from '@/components/ui/card';
 defineProps({
     product:{
-        type: Object,
+        type: Array,
         required: true
     }
  })

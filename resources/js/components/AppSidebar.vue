@@ -21,7 +21,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Tickets',
-        href: '/dashboard',
+        href: '/tickets',
         icon: LayoutGrid,
     },
 
