@@ -1,6 +1,9 @@
  <script setup>
  import AppLayout from '@/layouts/AppLayout.vue';
  import { Head } from '@inertiajs/vue3';
+import {useForm}
+import { Input } from '@/components/ui/input';
+import { InputError } from '@/components/ui/inputError';
 
 defineProps({
     product:{
@@ -12,10 +15,14 @@ defineProps({
  const breadcrumbs =[
     {title:'Produtos Papu', href: '/productos'}
 ]
+
+const form = useForm({
+
+})
 </script>
 
 <template>
-    <Head title="Detalle Producto" />
+    <Head title="Añadir Producto" />
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <Card class="w-[350px]">
@@ -25,33 +32,13 @@ defineProps({
     </CardHeader>
     <CardContent>
       <form>
-        <div class="grid items-center w-full gap-4">
-          <div class="flex flex-col space-y-1.5">
-            <Label for="name">Name</Label>
-            <Input id="name" placeholder="Name of your project" />
-          </div>
-          <div class="flex flex-col space-y-1.5">
-            <Label for="framework">Framework</Label>
-            <Select>
-              <SelectTrigger id="framework">
-                <SelectValue placeholder="Select" />
-              </SelectTrigger>
-              <SelectContent position="popper">
-                <SelectItem value="nuxt">
-                  Nuxt
-                </SelectItem>
-                <SelectItem value="next">
-                  Next.js
-                </SelectItem>
-                <SelectItem value="sveltekit">
-                  SvelteKit
-                </SelectItem>
-                <SelectItem value="astro">
-                  Astro
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+        <div class="grid-w-full gap-">
+          <Label name="name">Nombre</Label>
+          <Label name="name">Nombre</Label>
+        </div>
+        <div class="flex justify-between items-center">
+          <Button :disabled="formProcessing">Guardar</Button>
+          <Link>Cancelar</Link>
         </div>
       </form>
     </CardContent>

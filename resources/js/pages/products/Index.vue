@@ -1,4 +1,4 @@
-<script setup>
+    <script setup>
 import AppLayout from  '@/layouts/AppLayout.vue';
 import { Head, Link, router } from '@inertiajs/vue3';
 import { TableBody, TableRow, TableCell, Table } from '@/components/ui/table';
@@ -11,17 +11,8 @@ defineProps({
     }
 })
 const breadcrumbs =[
-    {title:'Produtos Papu', href: '/productos'}
+    {title:'Productos Papu', href: '/productos'}
 ]
-const deleteProduct = (id)=>{
-    if(confirm("Estas seguro eliminar")){
-        router('/productos')
-    }else{
-        console.log("flask")    
-    }
-    
-
-}
 
 </script>
 
@@ -30,6 +21,9 @@ const deleteProduct = (id)=>{
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <h1>Producs :C </h1>
+            <div class="mt-3">
+                <Link :href="route('productos.create')">Registrar</Link>
+            </div>
             <Table>
                 <TableBody>
                     <TableRow v-for="product in products" :key="product.id">

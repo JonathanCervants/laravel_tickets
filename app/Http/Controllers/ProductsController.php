@@ -43,7 +43,7 @@ class ProductsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
@@ -51,6 +51,7 @@ class ProductsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Product::whereId($id)->delete();
+        return redirect()->route('productos.index');   
     }
 }
