@@ -17,13 +17,13 @@ const breadcrumbs =[
 <template>
     <Head title="Detalle Producto" />
     <AppLayout :breadcrumbs="breadcrumbs">
-        <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
-          <div class="flex w-full max-w-2xl flex-col">
+      <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
+        <div class="flex w-full max-w-2xl flex-col">
           <Card class="mt-3">
             <CardHeader>
               <CardTitle>A por ellos soy el acorazado</CardTitle>
               <CardDescription>Por julio voltio.</CardDescription>
-              </CardHeader>
+            </CardHeader>
             <CardContent>
               <div class="flex items-center space-x-4">
                 <div class="w-32 font-semibold">Categoría</div>
@@ -36,7 +36,7 @@ const breadcrumbs =[
             </CardContent>
             <CardFooter class="flex justify-between px-6 pb-6">
               <Button variant="outline">
-                Cancel
+                Cancelar
               </Button>
               <Button>Deploy</Button>
             </CardFooter>

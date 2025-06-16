@@ -5,7 +5,7 @@ import { TableBody, TableRow, TableCell, Table } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 
 defineProps({
-    products: {
+    tickets: {
         type:Array,
         required: true
     }
@@ -30,10 +30,10 @@ const deleteProduct = ($id)=>{
             <h1>Producs :C </h1>
             <Table>
                 <TableBody>
-                    <TableRow v-for="ticket in tickets" :key="product.id">
+                    <TableRow v-for="ticket in tickets" :key="ticket.id">
                         <TableCell>{{ ticket.name }}</TableCell>
                         <TableCell>{{ ticket.content }}</TableCell>
-                        <TableCell>{{ ticket.status }}</TableCell>
+                        <TableCell>{{ ticket.status == '0' ? 'Pendiente' : 'Cerrado'}}</TableCell>
                      <TableCell>
                             <Link :href="route('tickets.show',ticket.id)">Ver</Link>
                             <Button variant="destructive" @click="deleteTicket(ticket.id)">Eliminar</Button>

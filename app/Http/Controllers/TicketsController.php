@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\Category;
 use Inertia\Inertia;
 
 
@@ -17,7 +18,10 @@ class TicketsController extends Controller
 
     public function create()
     {
-        return Inertia::render('tickets/create');
+        $categories = Category::orderBy('name')->get();
+        return Inertia::render('tickets/create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -41,10 +45,10 @@ class TicketsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show(string $id)
     {
-        return Intertia::render('tickets/Show');
-        // $ticket = Ticket::whereSlug($slug)->firstOrFail();
+        $ticket = Ticket::whereId($id)->firstOrFail();
+        return Inertia::render('tickets/Show', compact('ticket'));
         // $comentario= $ticket->comentarios->all();
         // return view('tickets.show',compact('ticket','comentario')); 
 

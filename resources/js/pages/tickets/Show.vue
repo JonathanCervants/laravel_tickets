@@ -1,60 +1,40 @@
  <script setup>
  import AppLayout from '@/layouts/AppLayout.vue';
  import { Head } from '@inertiajs/vue3';
+ import { Card,CardHeader,CardTitle,CardDescription,CardContent,CardFooter } from '@/components/ui/card';
 
 defineProps({
-    product:{
+    ticket:{
         type: Object,
         required: true
     }
  })
 
  const breadcrumbs =[
-    {title:'Produtos Papu', href: '/productos'}
+    {title:'Tickets Papu / Detalle', href: '/tickets'}
 ]
+
 </script>
 
 <template>
-    <Head title="Detalle Producto" />
+    <Head title="Detalle Ticket" />
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <Card class="w-[350px]">
     <CardHeader>
-      <CardTitle>Create project</CardTitle>
+      <CardTitle>:C Ticket Nuevo</CardTitle>
       <CardDescription>Deploy your new project in one-click.</CardDescription>
     </CardHeader>
     <CardContent>
-      <form>
-        <div class="grid items-center w-full gap-4">
-          <div class="flex flex-col space-y-1.5">
-            <Label for="name">Name</Label>
-            <Input id="name" placeholder="Name of your project" />
-          </div>
-          <div class="flex flex-col space-y-1.5">
-            <Label for="framework">Framework</Label>
-            <Select>
-              <SelectTrigger id="framework">
-                <SelectValue placeholder="Select" />
-              </SelectTrigger>
-              <SelectContent position="popper">
-                <SelectItem value="nuxt">
-                  Nuxt
-                </SelectItem>
-                <SelectItem value="next">
-                  Next.js
-                </SelectItem>
-                <SelectItem value="sveltekit">
-                  SvelteKit
-                </SelectItem>
-                <SelectItem value="astro">
-                  Astro
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-      </form>
-    </CardContent>
+              <div class="flex items-center space-x-4">
+                <div class="w-32 font-semibold">Ticket:</div>
+                <div>{{ ticket.title }}</div>
+              </div>
+              <div class="flex items-center space-x-4">
+                <div class="w-32 font-semibold">Detalle:</div>
+                <div>{{ ticket.content }}</div>
+              </div>
+            </CardContent>
     <CardFooter class="flex justify-between px-6 pb-6">
       <Button variant="outline">
         Cancel
@@ -64,4 +44,4 @@ defineProps({
   </Card>
         </div>
     </AppLayout>
-</template>
+</template> 

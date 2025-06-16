@@ -1,6 +1,13 @@
- <script setup>
- import AppLayout from '@/layouts/AppLayout.vue';
- import { Head } from '@inertiajs/vue3';
+<script setup>
+import AppLayout from '@/layouts/AppLayout.vue';
+import { Head } from '@inertiajs/vue3';
+import { Card,CardHeader,CardTitle,CardDescription,CardContent,CardFooter } from '@/components/ui/card';
+
+import { Input } from '@/components/ui/input';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Select } from '@/components/ui/select';
 
 defineProps({
     product:{
