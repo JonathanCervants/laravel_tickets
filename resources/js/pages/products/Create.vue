@@ -1,7 +1,6 @@
- <script setup>
- import AppLayout from '@/layouts/AppLayout.vue';
- import { Head } from '@inertiajs/vue3';
-import {useForm}
+<script setup>
+import AppLayout from '@/layouts/AppLayout.vue';
+import { Head, Link, useForm } from '@inertiajs/vue3';
 import { Input } from '@/components/ui/input';
 import { InputError } from '@/components/ui/inputError';
 
@@ -17,7 +16,8 @@ defineProps({
 ]
 
 const form = useForm({
-
+  title: '',
+  content: ''
 })
 </script>
 
@@ -27,13 +27,14 @@ const form = useForm({
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <Card class="w-[350px]">
     <CardHeader>
-      <CardTitle>Create project</CardTitle>
+      <CardTitle>Ingresa tu Ticket</CardTitle>
       <CardDescription>Deploy your new project in one-click.</CardDescription>
     </CardHeader>
     <CardContent>
       <form>
         <div class="grid-w-full gap-">
           <Label name="name">Nombre</Label>
+
           <Label name="name">Nombre</Label>
         </div>
         <div class="flex justify-between items-center">

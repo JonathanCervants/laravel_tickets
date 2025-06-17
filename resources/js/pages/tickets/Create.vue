@@ -1,21 +1,21 @@
 <script setup>
 import AppLayout from '@/layouts/AppLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, router } from '@inertiajs/vue3';
 import { Card,CardHeader,CardTitle,CardDescription,CardContent,CardFooter } from '@/components/ui/card';
 
 import { Input } from '@/components/ui/input';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { Select } from '@/components/ui/select';
-import { Ticket } from 'lucide-vue-next';
 
-defineProps({
-    Ticket:{
-        type: Object,
-        required: true
-    }
- })
+
+
+ const form = useForm({
+  title: null,
+  content: null,
+})
+
+function submit(){
+  router.post('tickets.store', form)
+}
 
  const breadcrumbs =[
     {title:'Produtos Papu', href: '/productos'}
@@ -28,19 +28,20 @@ defineProps({
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <Card class="w-[350px]">
     <CardHeader>
-      <CardTitle>Create project</CardTitle>
+      <CardTitle>Create Ticket</CardTitle>
       <CardDescription>Deploy your new project in one-click.</CardDescription>
     </CardHeader>
     <CardContent>
-      <form>
+      <form @submit.prevent="submit">
         <div class="grid items-center w-full gap-4">
           <div class="flex flex-col space-y-1.5">
-            <Label for="name">Name</Label>
-            <Input id="name" placeholder="Name of your project" />
+            <Label for="title">Name</Label>
+            <Input id="title" v-model="form.title" placeholder="Name of your project" />
           </div>
           <div class="flex flex-col space-y-1.5">
-            <Label for="framework">Framework</Label>
-            <Select>
+            <Label for="content">Contenido</Label>
+            <Input id="content" v-model="form.content" placeholder="Describe tu solicitud" />
+            <!-- <Select>
               <SelectTrigger id="framework">
                 <SelectValue placeholder="Select" />
               </SelectTrigger>
@@ -58,7 +59,7 @@ defineProps({
                   Astro
                 </SelectItem>
               </SelectContent>
-            </Select>
+            </Select> -->
           </div>
         </div>
       </form>
@@ -67,7 +68,7 @@ defineProps({
       <Button variant="outline">
         Cancel
       </Button>
-      <Button>Deploy</Button>
+      <Button type="submit">Deploy</Button>
     </CardFooter>
   </Card>
         </div>

@@ -19,10 +19,10 @@ class TicketsController extends Controller
 
     public function create()
     {
-        $categories = Category::orderBy('name')->get();
-        return Inertia::render('tickets/Create', [
-            'categories' => $categories
-        ]);
+        return Inertia::render('tickets/Create');        //$categories = Category::orderBy('name')->get();
+        // return Inertia::render('tickets/Create', [
+        //     // 'categories' => $categories
+        // ]);
     }
 
     /**
@@ -34,7 +34,6 @@ class TicketsController extends Controller
         $ticket = new Ticket(array(
             'title' => $request->get('title'),
             'content' => $request->get('content'),
-            'status' =>1,
             'user_id' => 1,
             'slug' => $slug
         ));
