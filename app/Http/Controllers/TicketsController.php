@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TicketFormRequest;
 use App\Models\Ticket;
 use App\Models\Category;
 use Inertia\Inertia;
@@ -19,7 +20,7 @@ class TicketsController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name')->get();
-        return Inertia::render('tickets/create', [
+        return Inertia::render('tickets/Create', [
             'categories' => $categories
         ]);
     }

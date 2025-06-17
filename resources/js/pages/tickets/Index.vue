@@ -27,6 +27,7 @@ const deleteProduct = ($id)=>{
     <Head title="Tickets" />
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
+            <Link variant="destructive" :href="route('tickets.create')">Registrar</Link>
             <h1>Producs :C </h1>
             <Table>
                 <TableBody>

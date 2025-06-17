@@ -7,7 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 
 use Illuminate\Http\Request;
-
+            
 class ProductsController extends Controller
 {
     /**
@@ -17,6 +17,7 @@ class ProductsController extends Controller
     {
         $products = Product::all();
         return Inertia::render('products/Index',compact('products'));
+    
     }
 
     public function create()
