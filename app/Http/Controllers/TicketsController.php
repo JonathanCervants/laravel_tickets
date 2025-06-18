@@ -30,6 +30,7 @@ class TicketsController extends Controller
          */
     public function store(TicketFormRequest $request)
     {       
+        echo('title');
         $slug = uniqid();
         $ticket = new Ticket(array(
             'title' => $request->get('title'),
