@@ -35,8 +35,9 @@ const deleteProduct = ($id)=>{
                         <TableCell>{{ ticket.name }}</TableCell>
                         <TableCell>{{ ticket.content }}</TableCell>
                         <TableCell>{{ ticket.status == '0' ? 'Pendiente' : 'Cerrado'}}</TableCell>
-                     <TableCell>
+                     <TableCell p-x-3>
                             <Link :href="route('tickets.show',ticket.id)">Ver</Link>
+                            <Button variant="destructive" @click="deleteTicket(ticket.id)">Editar</Button>
                             <Button variant="destructive" @click="deleteTicket(ticket.id)">Eliminar</Button>
                         </TableCell>
                     </TableRow>
